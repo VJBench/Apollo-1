@@ -13,7 +13,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.http.HttpHeaders;
 
 /**
  * @author Jason Song(song_s@ctrip.com)
@@ -38,7 +37,7 @@ public class ConsumerAuthenticationFilter implements Filter {
     HttpServletRequest request = (HttpServletRequest) req;
     HttpServletResponse response = (HttpServletResponse) resp;
 
-    String token = request.getHeader(HttpHeaders.AUTHORIZATION);
+    String token = request.getHeader("Authorization");
 
     Long consumerId = consumerAuthUtil.getConsumerId(token);
 
